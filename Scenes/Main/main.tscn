@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bn24v0qq8joe0"]
+
+[ext_resource type="PackedScene" uid="uid://5xejo6th832g" path="res://Scenes/Player/player.tscn" id="1_1r6ip"]
+[ext_resource type="PackedScene" uid="uid://bx1cgl2gkry8k" path="res://Scenes/Background/background.tscn" id="2_lixft"]
+[ext_resource type="PackedScene" uid="uid://xh6ktydjyhne" path="res://Scenes/Enemy/enemy.tscn" id="3_qw60k"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
+
+[node name="Main" type="Node2D" unique_id=424375865]
+y_sort_enabled = true
+
+[node name="Background" parent="." unique_id=1275530353 instance=ExtResource("2_lixft")]
+
+[node name="Player" parent="." unique_id=775832354 instance=ExtResource("1_1r6ip")]
+position = Vector2(-170, 85)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1799365125]
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=135527221]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=359703511]
+position = Vector2(0, 135)
+shape = SubResource("WorldBoundaryShape2D_xrivr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=878153652]
+position = Vector2(0, 24)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_xrivr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2040194129]
+position = Vector2(-240, 21)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_xrivr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1737960579]
+position = Vector2(240, 21)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_xrivr")
+
+[node name="Enemy" parent="." unique_id=1069323530 instance=ExtResource("3_qw60k")]
+position = Vector2(211, 67)
+
+[node name="Enemy2" parent="." unique_id=976718860 instance=ExtResource("3_qw60k")]
+position = Vector2(112, 67)
+
+[node name="Enemy3" parent="." unique_id=1919742846 instance=ExtResource("3_qw60k")]
+position = Vector2(173, 87)
