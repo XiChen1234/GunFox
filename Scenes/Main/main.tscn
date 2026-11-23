@@ -27,7 +27,7 @@ position = Vector2(0, 135)
 shape = SubResource("WorldBoundaryShape2D_xrivr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=878153652]
-position = Vector2(0, 44)
+position = Vector2(0, 25)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_xrivr")
 
@@ -53,4 +53,4 @@ position = Vector2(112, 67)
 [node name="Enemy3" parent="EnemySpawner" unique_id=1919742846 instance=ExtResource("3_qw60k")]
 position = Vector2(173, 87)
 
-[connection signal="body_entered" from="EnemySpawner/@Area2D@27411" to="EnemySpawner/@Area2D@27411" method="_on_body_entered"]
+[connection signal="body_entered" from="EnemySpawner/@Area2D@21598" to="EnemySpawner/@Area2D@21598" method="_on_body_entered"]
