@@ -6,6 +6,8 @@ extends Node2D
 
 func _physics_process(delta: float) -> void:
 	position.x += speed * delta
+	if position.x > 250:
+		queue_free()
 
 
 ## 敌人的碰撞箱进入子弹

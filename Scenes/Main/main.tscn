@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://bn24v0qq8joe0"]
 
 [ext_resource type="PackedScene" uid="uid://5xejo6th832g" path="res://Scenes/Player/player.tscn" id="1_1r6ip"]
+[ext_resource type="Script" uid="uid://dnhevueqqal6m" path="res://Scenes/Main/main.gd" id="1_5yls4"]
 [ext_resource type="PackedScene" uid="uid://bx1cgl2gkry8k" path="res://Scenes/Background/background.tscn" id="2_lixft"]
 [ext_resource type="PackedScene" uid="uid://xh6ktydjyhne" path="res://Scenes/Enemy/enemy.tscn" id="3_qw60k"]
+[ext_resource type="PackedScene" uid="uid://bfym3bfgtkocb" path="res://Scenes/Enemy/enemy_spawner.tscn" id="4_5yls4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
 
 [node name="Main" type="Node2D" unique_id=424375865]
 y_sort_enabled = true
+script = ExtResource("1_5yls4")
 
 [node name="Background" parent="." unique_id=1275530353 instance=ExtResource("2_lixft")]
 
@@ -24,7 +27,7 @@ position = Vector2(0, 135)
 shape = SubResource("WorldBoundaryShape2D_xrivr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=878153652]
-position = Vector2(0, 24)
+position = Vector2(0, 44)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_xrivr")
 
@@ -38,11 +41,16 @@ position = Vector2(240, 21)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_xrivr")
 
-[node name="Enemy" parent="." unique_id=1069323530 instance=ExtResource("3_qw60k")]
-position = Vector2(211, 67)
+[node name="EnemySpawner" parent="." unique_id=1473307653 instance=ExtResource("4_5yls4")]
+spawn_area = Rect2(250, 45, 50, 90)
 
-[node name="Enemy2" parent="." unique_id=976718860 instance=ExtResource("3_qw60k")]
+[node name="Enemy" parent="EnemySpawner" unique_id=1069323530 instance=ExtResource("3_qw60k")]
+position = Vector2(208, 113)
+
+[node name="Enemy2" parent="EnemySpawner" unique_id=976718860 instance=ExtResource("3_qw60k")]
 position = Vector2(112, 67)
 
-[node name="Enemy3" parent="." unique_id=1919742846 instance=ExtResource("3_qw60k")]
+[node name="Enemy3" parent="EnemySpawner" unique_id=1919742846 instance=ExtResource("3_qw60k")]
 position = Vector2(173, 87)
+
+[connection signal="body_entered" from="EnemySpawner/@Area2D@27411" to="EnemySpawner/@Area2D@27411" method="_on_body_entered"]
