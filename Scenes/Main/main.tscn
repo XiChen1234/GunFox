@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://5xejo6th832g" path="res://Scenes/Player/player.tscn" id="1_1r6ip"]
 [ext_resource type="Script" uid="uid://dnhevueqqal6m" path="res://Scenes/Main/main.gd" id="1_5yls4"]
 [ext_resource type="PackedScene" uid="uid://bx1cgl2gkry8k" path="res://Scenes/Background/background.tscn" id="2_lixft"]
-[ext_resource type="PackedScene" uid="uid://xh6ktydjyhne" path="res://Scenes/Enemy/enemy.tscn" id="3_qw60k"]
 [ext_resource type="PackedScene" uid="uid://bfym3bfgtkocb" path="res://Scenes/Enemy/enemy_spawner.tscn" id="4_5yls4"]
+[ext_resource type="PackedScene" uid="uid://xh6ktydjyhne" path="res://Scenes/Enemy/enemy.tscn" id="5_p6jpk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
 
@@ -44,13 +44,13 @@ shape = SubResource("WorldBoundaryShape2D_xrivr")
 [node name="EnemySpawner" parent="." unique_id=1473307653 instance=ExtResource("4_5yls4")]
 spawn_area = Rect2(250, 45, 50, 90)
 
-[node name="Enemy" parent="EnemySpawner" unique_id=1069323530 instance=ExtResource("3_qw60k")]
-position = Vector2(208, 113)
+[node name="Enemy" parent="EnemySpawner" unique_id=1069323530 instance=ExtResource("5_p6jpk")]
+position = Vector2(100, 69)
 
-[node name="Enemy2" parent="EnemySpawner" unique_id=976718860 instance=ExtResource("3_qw60k")]
-position = Vector2(112, 67)
+[node name="Enemy2" parent="EnemySpawner" unique_id=1768240909 instance=ExtResource("5_p6jpk")]
+position = Vector2(132, 115)
 
-[node name="Enemy3" parent="EnemySpawner" unique_id=1919742846 instance=ExtResource("3_qw60k")]
-position = Vector2(173, 87)
+[node name="Enemy3" parent="EnemySpawner" unique_id=1921229971 instance=ExtResource("5_p6jpk")]
+position = Vector2(175, 84)
 
-[connection signal="body_entered" from="EnemySpawner/@Area2D@21598" to="EnemySpawner/@Area2D@21598" method="_on_body_entered"]
+[connection signal="body_entered" from="EnemySpawner/@Area2D@41455" to="EnemySpawner/@Area2D@41455" method="_on_body_entered"]

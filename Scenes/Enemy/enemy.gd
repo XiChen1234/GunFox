@@ -42,6 +42,7 @@ func _die() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_dead and animated_sprite_2d.animation == "die":
 		queue_free()
+		#PoolManager.release_object(self)
 
 
 ## 史莱姆碰到玩家触发
