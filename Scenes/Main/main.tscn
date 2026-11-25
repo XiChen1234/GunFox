@@ -56,4 +56,4 @@ position = Vector2(175, 84)
 
 [node name="UI" parent="." unique_id=1195957759 instance=ExtResource("6_2a143")]
 
-[connection signal="body_entered" from="EnemySpawner/@Area2D@25642" to="EnemySpawner/@Area2D@25642" method="_on_body_entered"]
+[connection signal="body_entered" from="EnemySpawner/@Area2D@23823" to="EnemySpawner/@Area2D@23823" method="_on_body_entered"]

@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 ## 造成伤害
 func heart(amount: int) -> void:
 	if is_dead:
-		
 		return
 	hp -= amount
 	if hp <= 0:
+		GameManager.add_score(ENEMY_SCORE)
 		_die()
 
 
@@ -38,7 +38,6 @@ func _die() -> void:
 	speed = 0
 	hp = 0
 	animated_sprite_2d.play("die")
-	GameManager.enemy_killed.emit(ENEMY_SCORE)
 
 
 ## 死亡动画播放完毕触发
@@ -54,4 +53,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if body is Player:
 		body.heart(damage)
+		GameManager.add_score(-1)
 		_die()

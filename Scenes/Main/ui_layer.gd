@@ -6,12 +6,9 @@ class_name UILayer
 
 
 func _ready() -> void:
-	GameManager.enemy_killed.connect(score_update)
-	score_update(0)
-	
+	GameManager.score_changed.connect(_on_score_changed)
 
 
 ## 分数更新函数
-func score_update(score: int) -> void:
-	GameManager.score_add(score)
-	score_label.text = "Score: " + str(GameManager.current_score)
+func _on_score_changed(score: int) -> void:
+	score_label.text = "Score: %d" % score
