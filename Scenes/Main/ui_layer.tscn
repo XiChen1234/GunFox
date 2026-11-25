@@ -3,11 +3,14 @@
 [ext_resource type="Script" uid="uid://be18gh5fs828e" path="res://Scenes/Main/ui_layer.gd" id="1_jvf60"]
 [ext_resource type="Texture2D" uid="uid://8v2xcoo4hdj" path="res://Assets/heart.png" id="2_2ty53"]
 [ext_resource type="FontFile" uid="uid://bdo4rd550wo2n" path="res://Assets/Uranus_Pixel_11Px.ttf" id="2_4k0dk"]
+[ext_resource type="Texture2D" uid="uid://b7bjgse713ee5" path="res://Assets/heart-empty.png" id="3_uu7sv"]
 
 [node name="UILayer" type="CanvasLayer" unique_id=1195957759]
 script = ExtResource("1_jvf60")
+heart_texture = ExtResource("2_2ty53")
+heart_empty_texture = ExtResource("3_uu7sv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2038247773]
+[node name="HPContainer" type="HBoxContainer" parent="." unique_id=2038247773]
 custom_minimum_size = Vector2(0, 100)
 offset_left = 80.0
 offset_top = 40.0
@@ -16,7 +19,17 @@ offset_bottom = 140.0
 pivot_offset_ratio = Vector2(0, 0.5)
 size_flags_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=734308021]
+[node name="TextureRect" type="TextureRect" parent="HPContainer" unique_id=734308021]
+layout_mode = 2
+texture = ExtResource("2_2ty53")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HPContainer" unique_id=1561351657]
+layout_mode = 2
+texture = ExtResource("2_2ty53")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HPContainer" unique_id=1670302716]
 layout_mode = 2
 texture = ExtResource("2_2ty53")
 expand_mode = 3

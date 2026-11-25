@@ -1,15 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
+signal hp_changed(hp: int, max_hp: int)
+
 
 const SPEED = 100.0
 
+@export var max_hp: int = 3
 @export var bullet_scene: PackedScene
-@export var hp: int = 3
 @export var fire_interval: float = 1.0
 
 var is_dead: bool = false
 var can_shoot: bool = true
+var hp: int
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bullet_marker: Marker2D = $BulletMarker
@@ -18,6 +21,8 @@ var can_shoot: bool = true
 
 
 func _ready() -> void:
+	hp = max_hp
+	
 	bullet_timer.wait_time = fire_interval
 
 
@@ -46,7 +51,8 @@ func _physics_process(_delta: float) -> void:
 func heart(amount: int) -> void:
 	if is_dead:
 		return
-	hp -= amount
+	hp = max(0, hp - amount)
+	hp_changed.emit(hp, max_hp)
 	if hp <= 0:
 		_die()
 
