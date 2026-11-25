@@ -43,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 		animated_sprite_2d.flip_h = false
 
 
-func take_damage(amount: int) -> void:
+func heart(amount: int) -> void:
 	if is_dead:
 		return
 	hp -= amount

@@ -1,6 +1,7 @@
 extends Area2D
 class_name Enemy
 
+const ENEMY_SCORE: int = 1
 
 @export var speed: float = 50
 @export var damage: int = 1
@@ -21,8 +22,9 @@ func _physics_process(delta: float) -> void:
 
 
 ## 造成伤害
-func take_damage(amount: int) -> void:
+func heart(amount: int) -> void:
 	if is_dead:
+		
 		return
 	hp -= amount
 	if hp <= 0:
@@ -36,6 +38,7 @@ func _die() -> void:
 	speed = 0
 	hp = 0
 	animated_sprite_2d.play("die")
+	GameManager.enemy_killed.emit(ENEMY_SCORE)
 
 
 ## 死亡动画播放完毕触发
@@ -50,5 +53,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if is_dead: 
 		return
 	if body is Player:
-		body.take_damage(damage)
+		body.heart(damage)
 		_die()

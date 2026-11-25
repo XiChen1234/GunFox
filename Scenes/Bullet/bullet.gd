@@ -14,5 +14,5 @@ func _physics_process(delta: float) -> void:
 ## 敌人的碰撞箱进入子弹
 func _on_area_entered(area: Area2D) -> void:
 	if area is Enemy:
-		area.take_damage(damage)
+		area.heart(damage)
 		queue_free()

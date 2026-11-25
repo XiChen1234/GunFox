@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://0wp5wwenbqxh"]
+
+[ext_resource type="Script" uid="uid://be18gh5fs828e" path="res://Scenes/Main/ui_layer.gd" id="1_jvf60"]
+[ext_resource type="Texture2D" uid="uid://8v2xcoo4hdj" path="res://Assets/heart.png" id="2_2ty53"]
+[ext_resource type="FontFile" uid="uid://bdo4rd550wo2n" path="res://Assets/Uranus_Pixel_11Px.ttf" id="2_4k0dk"]
+
+[node name="UILayer" type="CanvasLayer" unique_id=1195957759]
+script = ExtResource("1_jvf60")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2038247773]
+custom_minimum_size = Vector2(0, 100)
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 388.0
+offset_bottom = 140.0
+pivot_offset_ratio = Vector2(0, 0.5)
+size_flags_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=734308021]
+layout_mode = 2
+texture = ExtResource("2_2ty53")
+expand_mode = 3
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1793316522]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -322.0
+offset_top = 40.0
+offset_right = -80.0
+offset_bottom = 105.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(1, 0.5)
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_4k0dk")
+theme_override_font_sizes/font_size = 64
+text = "Score: 64"
