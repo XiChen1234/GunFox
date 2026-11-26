@@ -56,4 +56,4 @@ position = Vector2(175, 84)
 
 [node name="UILayer" parent="." unique_id=1195957759 instance=ExtResource("6_2a143")]
 
-[connection signal="body_entered" from="EnemySpawner/@Area2D@38337" to="EnemySpawner/@Area2D@38337" method="_on_body_entered"]
+[connection signal="body_entered" from="EnemySpawner/@Area2D@24988" to="EnemySpawner/@Area2D@24988" method="_on_body_entered"]
